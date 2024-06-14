@@ -1,21 +1,17 @@
 class Solution:
     def minOperations(self, s: str) -> int:
-        start0 = 0
-        start1 = 0
-        
+        count = 0
+        # for even we expect 0. for odd we expect 1
         for i in range(len(s)):
-            # even
-            if i % 2 == 0:
-                if s[i] == "0":
-                    start1 += 1
-                else:
-                    start0 += 1
-            # odd
+            if i % 2 == 1: # odd
+                count += 1 if s[i] == "0" else 0
             else:
-                if s[i] == "1":
-                    start1 += 1
-                else:
-                    start0 += 1
-        
-        return min(start0, start1)
+                count += 1 if s[i] == "1" else 0
+
+
+
+
+
+        return min(count, len(s) - count)
+
         
